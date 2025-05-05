@@ -3,8 +3,8 @@ import { Email } from "./email.model";
 import { Tag } from "./tag.model";
 import { EmailTag } from "./emailTag.model";
 
-Email.belongsToMany(Tag, { through: EmailTag, foreignKey: "emailId", as: "Tags" });
-Tag.belongsToMany(Email, { through: EmailTag, foreignKey: "tagId" });
+Email.belongsToMany(Tag, { through: EmailTag, foreignKey: "emailId", as: "tags" });
+Tag.belongsToMany(Email, { through: EmailTag, foreignKey: "tagId", as: "emails" });
 
 export const db = {
   sequelize,

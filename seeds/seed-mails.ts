@@ -10,6 +10,9 @@ export async function seedMails() {
         subject: mail.subject,
         body: mail.text,
         read: mail.read,
+        createdAt: new Date(mail.date),
+        email: mail.email,
+        name: mail.name,
       },
     });
 

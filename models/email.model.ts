@@ -6,6 +6,9 @@ export class Email extends Model<InferAttributes<Email>, InferCreationAttributes
   declare id: CreationOptional<number>;
   declare subject: string;
   declare body: string;
+	declare createdAt: Date;
+	declare name: string;
+	declare email: string;
   declare read: boolean;
 
   declare Tags?: NonAttribute<Tag[]>;
@@ -17,7 +20,7 @@ Email.init(
     id: {
       type: DataTypes.UUID,
       primaryKey: true,
-			defaultValue: DataTypes.UUIDV4, // opcional si lo generas tú
+			defaultValue: DataTypes.UUIDV4,
     },
     subject: {
       type: DataTypes.STRING,
@@ -31,7 +34,20 @@ Email.init(
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
-  },
+		createdAt: {
+			type: DataTypes.DATE,
+			allowNull: false,
+			defaultValue: DataTypes.NOW,
+		},
+		name: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
+		email: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
+	},
   {
     tableName: "emails",
     sequelize,
