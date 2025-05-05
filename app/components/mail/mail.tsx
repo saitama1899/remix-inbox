@@ -117,6 +117,7 @@ export function Mail({
                 label: "9",
                 icon: File,
                 variant: "ghost",
+                disabled: true,
               },
               {
                 title: "Sent",
@@ -124,6 +125,7 @@ export function Mail({
                 label: "",
                 icon: Send,
                 variant: "ghost",
+                disabled: true,
               },
               {
                 title: "Junk",
@@ -131,6 +133,7 @@ export function Mail({
                 label: "23",
                 icon: ArchiveX,
                 variant: "ghost",
+                disabled: true,
               },
               {
                 title: "Trash",
@@ -138,6 +141,7 @@ export function Mail({
                 label: "",
                 icon: Trash2,
                 variant: "ghost",
+                disabled: true,
               },
               {
                 title: "Archive",
@@ -145,6 +149,7 @@ export function Mail({
                 label: "",
                 icon: Archive,
                 variant: "ghost",
+                disabled: true,
               },
             ]}
           />
@@ -158,6 +163,7 @@ export function Mail({
                 label: "972",
                 icon: Users2,
                 variant: "ghost",
+                disabled: true,
               },
               {
                 title: "Updates",
@@ -165,6 +171,7 @@ export function Mail({
                 label: "342",
                 icon: AlertCircle,
                 variant: "ghost",
+                disabled: true,
               },
               {
                 title: "Forums",
@@ -172,6 +179,7 @@ export function Mail({
                 label: "128",
                 icon: MessagesSquare,
                 variant: "ghost",
+                disabled: true,
               },
               {
                 title: "Shopping",
@@ -179,6 +187,7 @@ export function Mail({
                 label: "8",
                 icon: ShoppingCart,
                 variant: "ghost",
+                disabled: true,
               },
               {
                 title: "Promotions",
@@ -186,6 +195,7 @@ export function Mail({
                 label: "21",
                 icon: Archive,
                 variant: "ghost",
+                disabled: true,
               },
             ]}
           />
@@ -214,8 +224,8 @@ export function Mail({
             <div className="bg-background/95 p-4 backdrop-blur supports-[backdrop-filter]:bg-background/60">
               <form>
                 <div className="relative">
-                  <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
-                  <Input placeholder="Search" className="pl-8" />
+                  <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground text-gray-300" />
+                  <Input placeholder="Search" className="pl-8" aria-disabled="true" disabled={true} />
                 </div>
               </form>
             </div>
