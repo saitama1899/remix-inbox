@@ -1,40 +1,14 @@
-# Welcome to Remix!
+https://github.com/user-attachments/assets/b5e170ad-e98d-440b-bfba-c1ee46e64afa
 
-- 📖 [Remix docs](https://remix.run/docs)
+He utilizado la db gratuita de Railway, importando las tablas y el contenido mediante scripts ejecutables que puedes encontrar en /scripts
 
-## Development
+Para ejecutar en local:
 
-Run the dev server:
+- Añadir variable de entorno DATABASE_URL con credenciales (Railway Postgres)
 
-```shellscript
+```shell
+npm i
+npm run db:sync
+npm run db:seed
 npm run dev
 ```
-
-## Deployment
-
-First, build your app for production:
-
-```sh
-npm run build
-```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
