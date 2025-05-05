@@ -39,7 +39,6 @@ export async function loader({ request }: LoaderFunctionArgs) {
     },
     order: [["createdAt", "DESC"]],
   })
-	console.log("emails", emails)
   const mails = emails.map((email) => ({
     id: email.id.toString(),
     name: email.email,

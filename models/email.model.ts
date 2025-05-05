@@ -1,6 +1,6 @@
 import { DataTypes, Model, InferAttributes, InferCreationAttributes, CreationOptional, NonAttribute } from "sequelize";
 import { sequelize } from "../lib/db";
-import { Tag } from "types/email";
+import { Tag } from "./tag.model";
 
 export class Email extends Model<InferAttributes<Email>, InferCreationAttributes<Email>> {
   declare id: CreationOptional<number>;
