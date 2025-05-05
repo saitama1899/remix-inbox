@@ -10,7 +10,8 @@
 		"typecheck": "tsc",
 		"lint": "biome lint .",
 		"check": "biome check .",
-		"db:sync": "tsx scripts/sync-db.ts"
+		"db:sync": "tsx scripts/sync-db.ts",
+  	"db:seed": "tsx scripts/seed-db.ts"
 	},
 	"dependencies": {
 		"@radix-ui/react-avatar": "^1.1.8",
