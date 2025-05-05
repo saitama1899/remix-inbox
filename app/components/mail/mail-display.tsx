@@ -35,6 +35,7 @@ import {
   TooltipTrigger,
 } from "~/components/ui/tooltip"
 import { Mail } from "~/data/mail-mock"
+import { LabelSelector } from "./label-selector"
 
 interface MailDisplayProps {
   mail: Mail | null
@@ -76,12 +77,9 @@ export function MailDisplay({ mail }: MailDisplayProps) {
           </Tooltip>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button variant="ghost" size="icon" disabled={!mail}>
-                <Tag className="h-4 w-4" />
-                <span className="sr-only">Add tag</span>
-              </Button>
+              <LabelSelector mail={mail} />
             </TooltipTrigger>
-            <TooltipContent>Add tag</TooltipContent>
+            <TooltipContent>Edit labels</TooltipContent>
           </Tooltip>
           {/* <Tooltip>
             <TooltipTrigger asChild>

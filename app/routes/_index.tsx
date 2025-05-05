@@ -39,7 +39,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
     },
     order: [["createdAt", "DESC"]],
   })
-
+	console.log("emails", emails)
   const mails = emails.map((email) => ({
     id: email.id.toString(),
     name: email.email,
@@ -48,7 +48,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
     text: email.body,
     date: email.createdAt,
     read: email.read,
-    labels: (email.Tags || []).map((t) => t.name),
+    labels: (email.tags || []).map((t) => t.name),
   }))
 
   return json({ defaultLayout, defaultCollapsed, mails })

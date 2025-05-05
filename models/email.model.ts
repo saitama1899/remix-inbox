@@ -11,8 +11,10 @@ export class Email extends Model<InferAttributes<Email>, InferCreationAttributes
 	declare email: string;
   declare read: boolean;
 
-  declare Tags?: NonAttribute<Tag[]>;
-  declare addTag: (tag: Tag) => Promise<void>;
+  declare tags?: NonAttribute<Tag[]>
+  declare addTag: (tag: Tag | number) => Promise<void>
+  declare removeTag: (tag: Tag | number) => Promise<void>
+  declare hasTag: (tag: Tag | number) => Promise<boolean>
 }
 
 Email.init(
