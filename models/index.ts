@@ -1,17 +1,14 @@
 import { sequelize } from "lib/db";
 import { Email } from "./email.model";
-import { EmailTag } from "./emailTag.model";
 import { Tag } from "./tag.model";
-import dotenv from 'dotenv';
+import { EmailTag } from "./emailTag.model";
 
-dotenv.config();
-
-Email.belongsToMany(Tag, { through: EmailTag, foreignKey: "emailId" });
+Email.belongsToMany(Tag, { through: EmailTag, foreignKey: "emailId", as: "Tags" });
 Tag.belongsToMany(Email, { through: EmailTag, foreignKey: "tagId" });
 
 export const db = {
-	sequelize,
-	Email,
-	Tag,
-	EmailTag,
+  sequelize,
+  Email,
+  Tag,
+  EmailTag,
 };
