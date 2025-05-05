@@ -3,22 +3,16 @@ import { addHours } from "date-fns/addHours"
 import { format } from "date-fns/format"
 import { nextSaturday } from "date-fns/nextSaturday"
 import {
-  Archive,
-  ArchiveX,
   Clock,
   Forward,
-  MoreVertical,
   Reply,
   ReplyAll,
   Trash2,
   Eye,
+  EyeClosed,
   Tag,
 } from "lucide-react"
 
-import {
-  DropdownMenuContent,
-  DropdownMenuItem,
-} from "~/components/ui/dropdown-menu"
 import {
   Avatar,
   AvatarFallback,
@@ -26,10 +20,6 @@ import {
 } from "~/components/ui/avatar"
 import { Button } from "~/components/ui/button"
 import { Calendar } from "~/components/ui/calendar"
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-} from "~/components/ui/dropdown-menu"
 import { Label } from "~/components/ui/label"
 import {
   Popover,
@@ -59,10 +49,28 @@ export function MailDisplay({ mail }: MailDisplayProps) {
         <div className="flex items-center gap-2">
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button variant="ghost" size="icon" disabled={!mail}>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={async () => {
+                if (!mail) return
+                await fetch("/toggle-read", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ id: mail.id, read: !mail.read }),
+                })
+                window.location.reload()
+              }}
+            >
+              {mail?.read ? (
+                <EyeClosed className="h-4 w-4" />
+              ) : (
                 <Eye className="h-4 w-4" />
-                <span className="sr-only">Mark as unread</span>
-              </Button>
+              )}
+              <span className="sr-only">
+                {mail?.read ? "Mark as unread" : "Mark as read"}
+              </span>
+            </Button>
             </TooltipTrigger>
             <TooltipContent>Mark as unread</TooltipContent>
           </Tooltip>
